@@ -14,15 +14,14 @@ namespace Part_4b
     {
         Random generator = new Random();
 
-        
+        double maxD;
+        double minD;
         int maxI;
         int minI;
         int randNumI;
-        double randNumD;
         string randIS;
         double newDub;
         double finalDub;
-        int zero;
         
       
 
@@ -46,13 +45,11 @@ namespace Part_4b
         private void btnDbl_Click(object sender, EventArgs e)
         {
             
-            maxI = System.Convert.ToInt32(txtMax.Text);
-            minI = System.Convert.ToInt32(txtMin.Text);
-            randNumI = generator.Next(minI, maxI);
+            maxD = System.Convert.ToDouble(txtMax.Text);
+            minD = System.Convert.ToDouble(txtMin.Text);
             newDub = generator.NextDouble();
-            randNumD = System.Convert.ToDouble(randNumI);
-            zero = generator.Next(0, 2);
-            finalDub = ((randNumD * newDub) + zero);
+            finalDub = newDub * ((maxD - minD) + minD);
+            finalDub = Math.Round(finalDub, 6);
             randIS = System.Convert.ToString(finalDub);
             lblNum.Text = randIS;
             
